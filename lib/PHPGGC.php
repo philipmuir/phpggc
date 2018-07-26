@@ -295,6 +295,8 @@ class PHPGGC
 
         if(@$base64)
             $serialized = base64_encode($serialized);
+        if(@$compress)
+            $serialized = gzcompress($serialized);
         if(@$urlencode)
             $serialized = urlencode($serialized);
         if(@$softencode)
@@ -429,6 +431,7 @@ class PHPGGC
             'softencode' => false,
             'base64' => false,
             'urlencode' => false,
+            'compress' => false,
         ];
 
         $arguments = [
